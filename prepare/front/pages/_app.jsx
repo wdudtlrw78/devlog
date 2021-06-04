@@ -18,6 +18,7 @@ export const globalStyles = (
           font-family: Noto Sans KR, sans-serif;
           line-height: 1.6;
           font-size: 14px;
+          overflow: auto;
         }
         
         * {
@@ -25,16 +26,12 @@ export const globalStyles = (
         }
         
         a {
-          color: #0070f3;
+          color: #E96900;;
           text-decoration: none;
         }
         
         .menu-button {
           color: #E96900;
-        }
-        
-        a:hover {
-          text-decoration: underline;
         }
         
         img {
