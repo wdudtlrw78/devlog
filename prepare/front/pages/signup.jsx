@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import styled from '@emotion/styled';
+import Link from 'next/link';
 import AppLayout from '../components/AppLayout';
+import useInput from '../hooks/useInput';
 
 export const Header = styled.header`
   width: 280px;
   color: #e96900;
   font-size: 34px;
   font-weight: 700;
+  font-family: Noto Sans KR;
   text-align: center;
   margin: 52px auto;
 `;
@@ -55,8 +58,19 @@ export const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: #d15f02;
   }
+`;
+
+export const Error = styled.div`
+  color: #e01e5a;
+  margin: 8px 0 16px;
+  font-weight: bold;
+`;
+
+export const Success = styled.div`
+  color: #2eb67d;
+  font-weight: bold;
 `;
 
 export const LinkContainer = styled.p`
@@ -75,7 +89,93 @@ export const LinkContainer = styled.p`
 `;
 
 function SignUp() {
-  return <AppLayout>S</AppLayout>;
+  const [email, onChangeEmail] = useInput('');
+  const [nickname, onChangeNickname] = useInput('');
+  const [password, , setPassword] = useInput('');
+  const [passwordCheck, , setPasswordCheck] = useInput('');
+  const [mismatchError, setMismatchError] = useState(false);
+  const [signUpError, setSignUpError] = useState('');
+  const [singUpSuccess, setSignUpSuccess] = useState(false);
+
+  const onChangePassword = useCallback(
+    (e) => {
+      setPassword(e.target.value);
+      setMismatchError(e.target.value !== passwordCheck);
+    },
+    [passwordCheck],
+  );
+
+  const onChangepasswordCheck = useCallback(
+    (e) => {
+      setPasswordCheck(e.target.value);
+      setMismatchError(e.target.value !== password);
+    },
+    [password],
+  );
+
+  const onSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      console.log(email, nickname, password, passwordCheck);
+
+      if (!mismatchError && nickname) {
+        console.log('서버로 회원가입하기');
+
+        setSignUpError('');
+        setSignUpSuccess(false);
+      }
+    },
+    [email, nickname, password, passwordCheck, mismatchError],
+  );
+
+  return (
+    <AppLayout>
+      <div id="container">
+        <Header>MolyMath</Header>
+        <Form onSubmit={onSubmit}>
+          <Label id="email-label">
+            <span>이메일 주소</span>
+            <Input type="email" id="email" name="email" value={email} onChange={onChangeEmail} />
+          </Label>
+          <Label id="nickname-label">
+            <span>닉네임</span>
+            <div>
+              <Input type="text" id="nickname" name="nickname" value={nickname} onChange={onChangeNickname} />
+            </div>
+          </Label>
+          <Label id="password-label">
+            <span>비밀번호</span>
+            <div>
+              <Input type="password" id="password" name="password" value={password} onChange={onChangePassword} />
+            </div>
+          </Label>
+          <Label id="password-check-label">
+            <span>비밀번호 확인</span>
+            <div>
+              <Input
+                type="password"
+                id="password-check"
+                name="password-check"
+                value={passwordCheck}
+                onChange={onChangepasswordCheck}
+              />
+            </div>
+          </Label>
+          {mismatchError && <Error>비밀번호가 일치하지 않습니다!</Error>}
+          {!nickname && <Error>닉네임을 입력해주세요.</Error>}
+          {signUpError && <Error>{signUpError}</Error>}
+          {singUpSuccess && <Success>회원가입되었습니다! 로그인해주세요.</Success>}
+          <Button type="submit">회원가입</Button>
+        </Form>
+        <LinkContainer>
+          이미 회원이신가요?&nbsp;
+          <Link href="/login">
+            <a>로그인 하러가기</a>
+          </Link>
+        </LinkContainer>
+      </div>
+    </AppLayout>
+  );
 }
 
 export default SignUp;
