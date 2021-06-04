@@ -11,33 +11,29 @@ library.add(fab, faBars);
 export const globalStyles = (
   <Global
     styles={css`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: Noto Sans KR, sans-serif;
-          line-height: 1.6;
-          font-size: 14px;
-          overflow: auto;
-        }
-        
-        * {
-          box-sizing: border-box;
-        }
-        
-        a {
-          color: #E96900;;
-          text-decoration: none;
-        }
-        
-        .menu-button {
-          color: #E96900;
-        }
-        
-        img {
-          max-width: 100%;
-          display: block;
-        `}
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: Noto Sans KR, sans-serif;
+        font-weigth: 400;
+        font-size: 14px;
+        overflow: auto;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      a {
+        color: #e96900;
+        text-decoration: none;
+      }
+
+      .menu-button {
+        color: #e96900;
+      }
+    `}
   />
 );
 
