@@ -1,7 +1,11 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div`
+export const Section = styled.section`
   max-width: 1600px;
+  margin: 0 auto;
+`;
+
+export const HeaderContainer = styled.div`
   height: 48px;
   margin: 0 auto;
   display: flex;
@@ -39,7 +43,7 @@ export const ToggleMenuButton = styled.button`
   }
 `;
 
-export const LeftColumn = styled.div`
+export const HeaderLeftColumn = styled.div`
   width: 240px;
   margin-top: 8px;
   text-align: center;
@@ -49,7 +53,7 @@ export const LeftColumn = styled.div`
   }
 `;
 
-export const RightColumn = styled.div`
+export const HeaderRightColumn = styled.div`
   display: flex;
   align-items: center;
 `;
@@ -78,3 +82,19 @@ export const SignUpButton = styled.a`
     background-color: rgba(0, 0, 0, 0.2);
   }
 `;
+
+export const NavContainer = styled.nav`
+  user-select: none;
+  position: fixed;
+  width: 240px;
+
+  @media (min-width: 820px) {
+    width: 240px;
+    height: 100%;
+    user-select: none;
+    position: fixed;
+  }
+`;
+export const MainContainer = styled.main``;
+
+export const Footer = styled.footer``;

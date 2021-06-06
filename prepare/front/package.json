@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next -p 3010"
   },
-  "author": "MolyMath",
+  "author": "molymath",
   "license": "ISC",
   "dependencies": {
     "@emotion/css": "^11.1.3",

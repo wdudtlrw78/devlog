@@ -15,6 +15,8 @@ export const globalStyles = (
       body {
         padding: 0;
         margin: 0;
+        height: 100%;
+        font-size: 14px;
         font-family: Noto Sans KR, Lato, sans-serif;
         letter-spacing: -1px;
         overflow: auto;
