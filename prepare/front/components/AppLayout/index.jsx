@@ -1,12 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StatusBar from '../StatusBar';
+import Header from '../Header';
 
 const AppLayout = ({ children }) => {
   return (
     <>
-      <StatusBar />
+      <Header />
       {children}
+      {/* <NavMenu /> */}
+      {/* <Row>
+        <leftColumn></leftColumn>
+        <centerColumn>{children}</centerColumn>
+        <rightColumn></rightColumn>
+      </Row> */}
     </>
   );
 };

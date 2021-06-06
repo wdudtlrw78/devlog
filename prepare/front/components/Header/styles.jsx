@@ -1,31 +1,34 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
+  max-width: 1600px;
+  height: 48px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1600px;
-  height: 48px;
-  padding: 10px 16px;
-  margin: 0 auto;
+  padding: 10px 40px 10px 0;
 
   background: #ffffff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   @media (min-width: 820px) {
     height: 64px;
-    margin: 0 auto;
+  }
+
+  @media (max-width: 820px) {
+    padding: 10px 16px 10px 0;
   }
 `;
 
-export const MenuButton = styled.button`
+export const ToggleMenuButton = styled.button`
   width: 48px;
   height: 48px;
+  float: left;
   cursor: pointer;
   background: transparent;
   border: none;
   outline: none;
   padding: 0;
-  margin: -16px;
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.2);
@@ -36,7 +39,17 @@ export const MenuButton = styled.button`
   }
 `;
 
-export const RightMenu = styled.div`
+export const LeftColumn = styled.div`
+  width: 240px;
+  margin-top: 8px;
+  text-align: center;
+
+  @media (max-width: 820px) {
+    display: none;
+  }
+`;
+
+export const RightColumn = styled.div`
   display: flex;
   align-items: center;
 `;

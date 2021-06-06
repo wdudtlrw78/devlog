@@ -16,8 +16,7 @@ export const globalStyles = (
         padding: 0;
         margin: 0;
         font-family: Noto Sans KR, Lato, sans-serif;
-        font-weigth: 400;
-        font-size: 14px;
+        letter-spacing: -1px;
         overflow: auto;
       }
 

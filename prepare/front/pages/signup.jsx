@@ -100,14 +100,14 @@ export const LinkContainer = styled.p`
   }
 `;
 
-function SignUp() {
+function Signup() {
   const [email, onChangeEmail] = useInput('');
   const [nickname, onChangeNickname] = useInput('');
   const [password, , setPassword] = useInput('');
   const [passwordCheck, , setPasswordCheck] = useInput('');
   const [mismatchError, setMismatchError] = useState(false);
-  const [signUpError, setSignUpError] = useState('');
-  const [singUpSuccess, setSignUpSuccess] = useState(false);
+  const [signupError, setSignupError] = useState('');
+  const [singUpSuccess, setSignupSuccess] = useState(false);
 
   const onChangePassword = useCallback(
     (e) => {
@@ -133,8 +133,8 @@ function SignUp() {
       if (!mismatchError && nickname) {
         console.log('서버로 회원가입하기');
 
-        setSignUpError('');
-        setSignUpSuccess(false);
+        setSignupError('');
+        setSignupSuccess(false);
       }
     },
     [email, nickname, password, passwordCheck, mismatchError],
@@ -201,7 +201,7 @@ function SignUp() {
           </Label>
           {mismatchError && <Error>비밀번호가 일치하지 않습니다!</Error>}
           {/* {!nickname && <Error>닉네임을 입력해주세요.</Error>} */}
-          {signUpError && <Error>{signUpError}</Error>}
+          {signupError && <Error>{signupError}</Error>}
           {singUpSuccess && <Success>회원가입되었습니다! 로그인해주세요.</Success>}
           <Button type="submit">회원가입</Button>
         </Form>
@@ -216,4 +216,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default Signup;

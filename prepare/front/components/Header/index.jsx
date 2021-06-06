@@ -1,16 +1,24 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Container, LogInButton, MenuButton, RightMenu, SignUpButton } from './styles';
+import { Container, LogInButton, ToggleMenuButton, RightColumn, SignUpButton, LeftColumn } from './styles';
 
-const StatusBar = () => {
+const Header = () => {
   return (
     <>
       <Container>
-        <MenuButton>
+        <ToggleMenuButton>
           <FontAwesomeIcon className="menu-button" icon="bars" size="2x" />
-        </MenuButton>
-        <RightMenu>
+        </ToggleMenuButton>
+        <LeftColumn>
+          <Link href="/">
+            <a>
+              <Image src="/logo.png" alt="MolyMath" width={64} height={44} />
+            </a>
+          </Link>
+        </LeftColumn>
+        <RightColumn>
           <LogInButton>
             <Link href="/login">
               <a>로그인</a>
@@ -21,10 +29,10 @@ const StatusBar = () => {
               <a>회원가입</a>
             </Link>
           </SignUpButton>
-        </RightMenu>
+        </RightColumn>
       </Container>
     </>
   );
 };
 
-export default StatusBar;
+export default Header;
