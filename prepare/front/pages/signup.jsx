@@ -7,6 +7,7 @@ import useInput from '../hooks/useInput';
 export const Header = styled.header`
   width: 280px;
   color: #e96900;
+  line-height: 1;
   font-size: 34px;
   font-weight: 700;
   font-family: Noto Sans KR;
@@ -21,24 +22,35 @@ export const Form = styled.form`
 `;
 
 export const Label = styled.label`
-  margin-bottom: 16px;
+  & > span {
+    display: bloack;
+    text-align: left;
+    font-size: 14px;
+    cursor: pointer;
+    line-height: 2;
+  }
 `;
 
 export const Input = styled.input`
 border: 1px solid #CCCCCC;
 box-sizing: border-box
 border-radius: 4px;
-margin: 0 0 20px;
+margin: 0 0 24px;
 width: 100%;
 padding: 12px;
 height: 44px;
 padding-top: 11px;
 padding-botton:13px;
 font-size: 15px;
-line-heigth: 1.33333333;
+line-heigth: 1;
 
 &:focus {
   border: 1px solid #000;
+}
+
+&::placeholder {
+  font-size: 12px;
+  color: #999;
 }
 `;
 
@@ -135,18 +147,42 @@ function SignUp() {
         <Form onSubmit={onSubmit}>
           <Label id="email-label">
             <span>이메일 주소</span>
-            <Input type="email" id="email" name="email" value={email} onChange={onChangeEmail} />
+            <Input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="이메일을 입력하세요."
+              value={email}
+              onChange={onChangeEmail}
+              required
+            />
           </Label>
           <Label id="nickname-label">
             <span>닉네임</span>
             <div>
-              <Input type="text" id="nickname" name="nickname" value={nickname} onChange={onChangeNickname} />
+              <Input
+                type="text"
+                id="nickname"
+                name="nickname"
+                placeholder="나중에 변경할 수 있습니다."
+                value={nickname}
+                onChange={onChangeNickname}
+                required
+              />
             </div>
           </Label>
           <Label id="password-label">
             <span>비밀번호</span>
             <div>
-              <Input type="password" id="password" name="password" value={password} onChange={onChangePassword} />
+              <Input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="8자리 이상이어야합니다."
+                value={password}
+                onChange={onChangePassword}
+                required
+              />
             </div>
           </Label>
           <Label id="password-check-label">
@@ -156,13 +192,15 @@ function SignUp() {
                 type="password"
                 id="password-check"
                 name="password-check"
+                placeholder="비밀번호를 한번 더 입력하세요."
                 value={passwordCheck}
                 onChange={onChangepasswordCheck}
+                required
               />
             </div>
           </Label>
           {mismatchError && <Error>비밀번호가 일치하지 않습니다!</Error>}
-          {!nickname && <Error>닉네임을 입력해주세요.</Error>}
+          {/* {!nickname && <Error>닉네임을 입력해주세요.</Error>} */}
           {signUpError && <Error>{signUpError}</Error>}
           {singUpSuccess && <Success>회원가입되었습니다! 로그인해주세요.</Success>}
           <Button type="submit">회원가입</Button>
