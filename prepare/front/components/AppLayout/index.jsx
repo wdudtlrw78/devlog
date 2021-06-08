@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import { Global, css } from '@emotion/react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
@@ -18,6 +19,36 @@ import {
   MainContainer,
 } from './styles';
 
+export const globalStyles = (
+  <Global
+    styles={css`
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        font-size: 14px;
+        font-family: Noto Sans KR, Lato, sans-serif;
+        letter-spacing: -1px;
+        overflow: auto;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      a {
+        color: #e96900;
+        text-decoration: none;
+      }
+
+      .menu-button {
+        color: #e96900;
+      }
+    `}
+  />
+);
+
 const AppLayout = ({ children }) => {
   const [showNavMenu, setShowNavMenu] = useState(false);
 
@@ -26,7 +57,8 @@ const AppLayout = ({ children }) => {
   }, []);
 
   return (
-    <AppLayout>
+    <div>
+      {globalStyles}
       <Section>
         <HeaderContainer>
           <ToggleMenuButton show={showNavMenu} onClick={toggleNavMenu}>
@@ -60,7 +92,7 @@ const AppLayout = ({ children }) => {
 
         <Footer>footer</Footer>
       </Section>
-    </AppLayout>
+    </div>
   );
 };
 
