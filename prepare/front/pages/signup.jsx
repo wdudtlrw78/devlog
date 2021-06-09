@@ -142,76 +142,74 @@ function Signup() {
 
   return (
     <AppLayout>
-      <div id="container">
-        <Header>MolyMath</Header>
-        <Form onSubmit={onSubmit}>
-          <Label id="email-label">
-            <span>이메일 주소</span>
+      <Header>MolyMath</Header>
+      <Form onSubmit={onSubmit}>
+        <Label id="email-label">
+          <span>이메일 주소</span>
+          <Input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="이메일을 입력하세요."
+            value={email}
+            onChange={onChangeEmail}
+            required
+          />
+        </Label>
+        <Label id="nickname-label">
+          <span>닉네임</span>
+          <div>
             <Input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="이메일을 입력하세요."
-              value={email}
-              onChange={onChangeEmail}
+              type="text"
+              id="nickname"
+              name="nickname"
+              placeholder="나중에 변경할 수 있습니다."
+              value={nickname}
+              onChange={onChangeNickname}
               required
             />
-          </Label>
-          <Label id="nickname-label">
-            <span>닉네임</span>
-            <div>
-              <Input
-                type="text"
-                id="nickname"
-                name="nickname"
-                placeholder="나중에 변경할 수 있습니다."
-                value={nickname}
-                onChange={onChangeNickname}
-                required
-              />
-            </div>
-          </Label>
-          <Label id="password-label">
-            <span>비밀번호</span>
-            <div>
-              <Input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="8자리 이상이어야합니다."
-                value={password}
-                onChange={onChangePassword}
-                required
-              />
-            </div>
-          </Label>
-          <Label id="password-check-label">
-            <span>비밀번호 확인</span>
-            <div>
-              <Input
-                type="password"
-                id="password-check"
-                name="password-check"
-                placeholder="비밀번호를 한번 더 입력하세요."
-                value={passwordCheck}
-                onChange={onChangepasswordCheck}
-                required
-              />
-            </div>
-          </Label>
-          {mismatchError && <Error>비밀번호가 일치하지 않습니다!</Error>}
-          {/* {!nickname && <Error>닉네임을 입력해주세요.</Error>} */}
-          {signupError && <Error>{signupError}</Error>}
-          {singUpSuccess && <Success>회원가입되었습니다! 로그인해주세요.</Success>}
-          <Button type="submit">회원가입</Button>
-        </Form>
-        <LinkContainer>
-          이미 회원이신가요?&nbsp;
-          <Link href="/login">
-            <a>로그인 하러가기</a>
-          </Link>
-        </LinkContainer>
-      </div>
+          </div>
+        </Label>
+        <Label id="password-label">
+          <span>비밀번호</span>
+          <div>
+            <Input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="8자리 이상이어야합니다."
+              value={password}
+              onChange={onChangePassword}
+              required
+            />
+          </div>
+        </Label>
+        <Label id="password-check-label">
+          <span>비밀번호 확인</span>
+          <div>
+            <Input
+              type="password"
+              id="password-check"
+              name="password-check"
+              placeholder="비밀번호를 한번 더 입력하세요."
+              value={passwordCheck}
+              onChange={onChangepasswordCheck}
+              required
+            />
+          </div>
+        </Label>
+        {mismatchError && <Error>비밀번호가 일치하지 않습니다!</Error>}
+        {/* {!nickname && <Error>닉네임을 입력해주세요.</Error>} */}
+        {signupError && <Error>{signupError}</Error>}
+        {singUpSuccess && <Success>회원가입되었습니다! 로그인해주세요.</Success>}
+        <Button type="submit">회원가입</Button>
+      </Form>
+      <LinkContainer>
+        이미 회원이신가요?&nbsp;
+        <Link href="/login">
+          <a>로그인 하러가기</a>
+        </Link>
+      </LinkContainer>
     </AppLayout>
   );
 }
