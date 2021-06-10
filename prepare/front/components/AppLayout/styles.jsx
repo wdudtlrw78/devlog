@@ -44,6 +44,7 @@ export const BackGround = styled.div`
 
 export const Container = styled.div`
   max-width: 1600px;
+  height: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -91,58 +92,104 @@ export const ToggleMenuButton = styled.button`
 
 export const HeaderLeftColumn = styled.div`
   width: 240px;
-  margin-top: 8px;
   text-align: center;
   clear: both;
   @media (max-width: 820px) {
     display: none;
-  @media (max-width: 820px) {
-    display: none;
-  }
 `;
 
 export const HeaderRightColumn = styled.div`
   display: flex;
   user-select: none;
   padding-right: 16px;
+
+  & a:hover {
+    color: #000;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
 `;
 
 export const LogInButton = styled.div`
   & a {
+    color: #e96900;
     display: inline-block;
     padding: 13px 16px;
     transition: color 1s ease 0s;
-  }
-  & a:hover {
-    color: #000;
-    background-color: rgba(0, 0, 0, 0.2);
   }
 `;
 
 export const SignUpButton = styled.a`
   & a {
     display: inline-block;
+    color: #e96900;
     padding: 13px 16px;
-    margin-right: -16px;
     transition: color 1s ease 0s;
   }
-  & a:hover {
-    color: #000;
-    background-color: rgba(0, 0, 0, 0.2);
-  }
 `;
+
 export const NavContainer = styled.nav`
   user-select: none;
   position: fixed;
   top: 0;
+  transition: all 0.5s ease-in-out 0s;
   width: 240px;
+  padding-left: 16px;
   background: #fff;
   height: 100vh;
   z-index: 100;
-  transition: margin-left 0.5s ease 0s;
 
-  & > ul {
-    margin-top: 128px;
+  @media (max-width: 820px) {
+    position: fixed;
+    transition: left 0.5s ease 0s;
+    left: 0;
+  }
+
+  & a:hover {
+    color: #e96900;
+  }
+`;
+
+export const TopContainer = styled.ul`
+  padding: 0;
+  margin-top: 88px;
+  position: relative;
+
+  @media (min-width: 820px) {
+    margin-top: 108px;
+  }
+  & li {
+    font-weight: 300;
+    margin-bottom: 24px;
+  }
+
+  & li:first-of-type > a {
+    font-size: 18px;
+    font-weight: 500;
+    color: #e96900;
+  }
+`;
+
+export const CenterLine = styled.div`
+  position: absolute;
+  width: 240px;
+  height: 0;
+  left: 0px;
+  top: 260px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+  @media (min-width: 820px) {
+    top: 280px;
+  }
+`;
+
+export const BottomContainer = styled.ul`
+  padding: 0;
+  margin-top: 78px;
+  font-size: 16px;
+  font-weight: 500;
+
+  & li {
+    margin-bottom: 24px;
   }
 `;
 

@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import {
@@ -17,6 +16,9 @@ import {
   Header,
   Container,
   BackGround,
+  BottomContainer,
+  TopContainer,
+  CenterLine,
 } from './styles';
 
 const AppLayout = ({ children }) => {
@@ -88,22 +90,51 @@ const AppLayout = ({ children }) => {
         {showNavMenu && (
           <>
             <NavContainer>
-              <ul>
+              <TopContainer>
                 <li>
-                  <Link href="/profile">
-                    <a>프로필</a>
+                  <Link href="/">
+                    <a>MolyMath</a>
                   </Link>
                 </li>
+                <li>
+                  <Link href="/profile">
+                    <a>소개</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/portfolio">
+                    <a>포트폴리오</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/guestbook">
+                    <a>방명록</a>
+                  </Link>
+                </li>
+              </TopContainer>
+              <CenterLine />
+              <BottomContainer>
                 <li>
                   <Link href="/category/[navMenu]" as="/category/HTML&DOM">
                     <a>HTML&DOM</a>
                   </Link>
                 </li>
-              </ul>
+                <li>
+                  <Link href="/category/[navMenu]" as="/category/CSS">
+                    <a>CSS</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/category/[navMenu]" as="/category/JavaScript">
+                    <a>JavaScript</a>
+                  </Link>
+                </li>
+              </BottomContainer>
             </NavContainer>
           </>
         )}
         {showBackground && <BackGround show={showBackground} onClick={toggleNavMenu} />}
+
         <MainContainer>{children}</MainContainer>
 
         <Footer>footer</Footer>

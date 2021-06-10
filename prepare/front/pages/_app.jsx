@@ -17,8 +17,9 @@ export const globalStyles = (
         margin: 0;
         height: 100%;
         font-size: 14px;
-        font-family: Noto Sans KR, Lato, sans-serif;
+        font-family: Noto Sans KR, sans-serif;
         letter-spacing: -1px;
+        line-height: 1;
         overflow: auto;
       }
 
@@ -31,7 +32,7 @@ export const globalStyles = (
       }
 
       a {
-        color: #e96900;
+        color: #000;
         text-decoration: none;
       }
 
