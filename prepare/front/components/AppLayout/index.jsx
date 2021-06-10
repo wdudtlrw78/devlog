@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
+import { faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import {
   Section,
   HeaderLeftColumn,
@@ -19,6 +22,7 @@ import {
   BottomContainer,
   TopContainer,
   CenterLine,
+  SNS,
 } from './styles';
 
 const AppLayout = ({ children }) => {
@@ -64,7 +68,7 @@ const AppLayout = ({ children }) => {
         <Header>
           <Container>
             <ToggleMenuButton show={showNavMenu} onClick={toggleNavMenu}>
-              <FontAwesomeIcon className="menu-button" icon="bars" size="2x" />
+              <FontAwesomeIcon className="menu-button" icon={faBars} size="2x" />
             </ToggleMenuButton>
             <HeaderLeftColumn>
               <Link href="/">
@@ -89,7 +93,7 @@ const AppLayout = ({ children }) => {
         </Header>
         {showNavMenu && (
           <>
-            <NavContainer>
+            <NavContainer show={showNavMenu}>
               <TopContainer>
                 <li>
                   <Link href="/">
@@ -130,6 +134,24 @@ const AppLayout = ({ children }) => {
                   </Link>
                 </li>
               </BottomContainer>
+              <SNS>
+                <Link href="mailto:wdudtlrw78@gmail.com">
+                  <a>
+                    <FontAwesomeIcon className="instagram" icon={faEnvelope} size="2x" />
+                  </a>
+                </Link>
+                <Link href="https://github.com/wdudtlrw78">
+                  <a target="_blank" rel="noreferrer noopener">
+                    <FontAwesomeIcon className="github" icon={faGithub} size="2x" />
+                  </a>
+                </Link>
+
+                <Link href="https://www.instagram.com/mosik_2">
+                  <a target="_blank" rel="noreferrer noopener">
+                    <FontAwesomeIcon className="instagram" icon={faInstagram} size="2x" />
+                  </a>
+                </Link>
+              </SNS>
             </NavContainer>
           </>
         )}

@@ -131,19 +131,15 @@ export const NavContainer = styled.nav`
   user-select: none;
   position: fixed;
   top: 0;
-  transition: all 0.5s ease-in-out 0s;
   width: 240px;
   padding-left: 16px;
   background: #fff;
   height: 100vh;
   z-index: 100;
-
-  @media (max-width: 820px) {
-    position: fixed;
-    transition: left 0.5s ease 0s;
-    left: 0;
+  overflow: auto;
+  ::-webkit-scrollbar {
+    display: none;
   }
-
   & a:hover {
     color: #e96900;
   }
@@ -190,6 +186,17 @@ export const BottomContainer = styled.ul`
 
   & li {
     margin-bottom: 24px;
+  }
+`;
+
+export const SNS = styled.div`
+  display: inline-flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 20px;
+
+  & a {
+    margin-right: 16px;
   }
 `;
 

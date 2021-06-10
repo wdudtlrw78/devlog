@@ -4,9 +4,9 @@ import Head from 'next/head';
 import { Global, css } from '@emotion/react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
 
-library.add(fab, faBars);
+library.add(fab, far);
 
 export const globalStyles = (
   <Global
@@ -20,7 +20,6 @@ export const globalStyles = (
         font-family: Noto Sans KR, sans-serif;
         letter-spacing: -1px;
         line-height: 1;
-        overflow: auto;
       }
 
       * {
