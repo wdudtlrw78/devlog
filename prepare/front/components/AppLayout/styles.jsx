@@ -98,35 +98,6 @@ export const HeaderLeftColumn = styled.div`
     display: none;
 `;
 
-export const HeaderRightColumn = styled.div`
-  display: flex;
-  user-select: none;
-  padding-right: 16px;
-
-  & a:hover {
-    color: #000;
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-`;
-
-export const LogInButton = styled.div`
-  & a {
-    color: #e96900;
-    display: inline-block;
-    padding: 13px 16px;
-    transition: color 1s ease 0s;
-  }
-`;
-
-export const SignUpButton = styled.a`
-  & a {
-    display: inline-block;
-    color: #e96900;
-    padding: 13px 16px;
-    transition: color 1s ease 0s;
-  }
-`;
-
 export const NavContainer = styled.nav`
   user-select: none;
   position: fixed;
@@ -182,21 +153,9 @@ export const BottomContainer = styled.ul`
   padding: 0;
   margin-top: 78px;
   font-size: 16px;
-  font-weight: 500;
 
   & li {
     margin-bottom: 24px;
-  }
-`;
-
-export const SNS = styled.div`
-  display: inline-flex;
-  justify-content: space-between;
-  position: absolute;
-  bottom: 20px;
-
-  & a {
-    margin-right: 16px;
   }
 `;
 
@@ -205,10 +164,27 @@ export const MainContainer = styled.main`
 `;
 
 export const Footer = styled.footer`
-  margin-left: 240px;
-  padding: 14px 14px 21px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 300;
+  padding: 60px 0;
 
   @media (max-width: 820px) {
     margin: 0 auto;
+  }
+`;
+
+export const SNS = styled.div`
+  margin-left: 16px;
+  margin-bottom: 16px;
+  & a {
+    margin-right: 16px;
+    font-size: 18px;
+  }
+
+  & a:hover {
+    color: #e96900;
   }
 `;
