@@ -101,7 +101,6 @@ export const HeaderLeftColumn = styled.div`
 export const HeaderRightColumn = styled.div`
   display: flex;
   user-select: none;
-  padding-right: 16px;
   & a:hover {
     color: #000;
     background-color: rgba(0, 0, 0, 0.1);
@@ -112,8 +111,14 @@ export const LogInButton = styled.div`
   & a {
     color: #e96900;
     display: inline-block;
-    padding: 13px 16px;
+    padding: 18px 10px;
     transition: color 1s ease 0s;
+  }
+
+  @media (min-width: 820px) {
+    & a {
+      padding: 25px 10px;
+    }
   }
 `;
 
@@ -121,8 +126,14 @@ export const SignUpButton = styled.div`
   & a {
     display: inline-block;
     color: #e96900;
-    padding: 13px 16px;
+    padding: 18px 10px;
     transition: color 1s ease 0s;
+  }
+
+  @media (min-width: 820px) {
+    & a {
+      padding: 25px 10px;
+    }
   }
 `;
 
@@ -192,7 +203,10 @@ export const MainContainer = styled.main`
   margin-left: 264px;
 
   @media (max-width: 820px) {
-    margin: 88px auto;
+    margin-top: 88px;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 `;
 
@@ -204,8 +218,8 @@ export const Footer = styled.footer`
   font-weight: 300;
   padding: 60px 0;
 
-  @media (max-width: 820px) {
-    margin: 0 auto;
+  @media (min-width: 820px) {
+    margin-left: 240px;
   }
 `;
 
@@ -213,6 +227,7 @@ export const SNS = styled.div`
   margin-left: 16px;
   margin-bottom: 16px;
   & a {
+    color: #666;
     margin-right: 16px;
     font-size: 18px;
   }

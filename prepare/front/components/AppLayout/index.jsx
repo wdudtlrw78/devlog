@@ -73,7 +73,7 @@ const AppLayout = ({ children }) => {
         <Header>
           <Container>
             <ToggleMenuButton show={showNavMenu} onClick={toggleNavMenu}>
-              <FontAwesomeIcon className="menu-button" icon={faBars} size="Lg" />
+              <FontAwesomeIcon className="menu-button" icon={faBars} size="2x" />
             </ToggleMenuButton>
             <HeaderLeftColumn>
               <Link href="/" prefetch={false}>
