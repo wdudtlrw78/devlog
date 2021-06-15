@@ -1,13 +1,14 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import AppLayout from '../../../../components/AppLayout';
 
 const listTitle = () => {
   const router = useRouter();
   const { id } = router.query;
   return (
-    <div>
+    <AppLayout>
       <div>Post: {id} </div>
-    </div>
+    </AppLayout>
   );
 };
 

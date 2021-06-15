@@ -98,6 +98,34 @@ export const HeaderLeftColumn = styled.div`
     display: none;
 `;
 
+export const HeaderRightColumn = styled.div`
+  display: flex;
+  user-select: none;
+  padding-right: 16px;
+  & a:hover {
+    color: #000;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+`;
+
+export const LogInButton = styled.div`
+  & a {
+    color: #e96900;
+    display: inline-block;
+    padding: 13px 16px;
+    transition: color 1s ease 0s;
+  }
+`;
+
+export const SignUpButton = styled.div`
+  & a {
+    display: inline-block;
+    color: #e96900;
+    padding: 13px 16px;
+    transition: color 1s ease 0s;
+  }
+`;
+
 export const NavContainer = styled.nav`
   user-select: none;
   position: fixed;
@@ -160,7 +188,12 @@ export const BottomContainer = styled.ul`
 `;
 
 export const MainContainer = styled.main`
-  width: 100%;
+  margin-top: 104px;
+  margin-left: 264px;
+
+  @media (max-width: 820px) {
+    margin: 88px auto;
+  }
 `;
 
 export const Footer = styled.footer`
