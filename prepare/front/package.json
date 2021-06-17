@@ -19,6 +19,7 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "cross-env": "^7.0.3",
     "gravatar": "^1.8.1",
+    "immer": "^9.0.3",
     "lodash": "^4.17.21",
     "next": "^10.2.3",
     "next-redux-wrapper": "^7.0.1",
