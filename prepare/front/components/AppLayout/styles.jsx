@@ -141,7 +141,7 @@ export const NavContainer = styled.nav`
   user-select: none;
   position: fixed;
   top: 0;
-  width: 240px;
+  width: 180px;
   padding-left: 16px;
   background: #fff;
   height: 100vh;
@@ -200,7 +200,7 @@ export const BottomContainer = styled.ul`
 
 export const MainContainer = styled.main`
   margin-top: 104px;
-  margin-left: 264px;
+  margin-left: 204px;
 
   @media (max-width: 820px) {
     margin-top: 88px;
@@ -219,7 +219,7 @@ export const Footer = styled.footer`
   padding: 60px 0;
 
   @media (min-width: 820px) {
-    margin-left: 240px;
+    margin-left: 180px;
   }
 `;
 

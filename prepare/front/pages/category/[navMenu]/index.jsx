@@ -1,17 +1,19 @@
 import React from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
 import AppLayout from '../../../components/AppLayout';
+import PostCard from '../../../components/PostCard';
 
 const Page = () => {
   const router = useRouter();
   const { navMenu } = router.query;
+  const { mainPosts } = useSelector((state) => state.post);
   return (
     <AppLayout>
       <div>Post: {navMenu} </div>
-      <Link href={`/category/${navMenu}/post/[id]`} as={`/category/${navMenu}/post/1`}>
-        <a>HTML 이란</a>
-      </Link>
+      {mainPosts.map((post) => (
+        <PostCard key={post.id} post={post} />
+      ))}
     </AppLayout>
   );
 };

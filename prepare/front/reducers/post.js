@@ -45,7 +45,7 @@ const reducer = (state = initialState, action) => {
     case ADD_POST:
       return {
         ...state,
-        mainPosts: [...state.mainPosts, dummyPost],
+        mainPosts: [dummyPost, ...state.mainPosts],
         postAdded: true,
       };
     default:
