@@ -10,25 +10,23 @@ import { Card, MetaContainer, Date, CategoryBox, AarticleContainer, Title, Descr
 dayjs.locale('ko');
 dayjs.extend(relativeTime);
 
-const PostCard = ({ post }) => {
+const PostCard = ({ blog }) => {
   const router = useRouter();
   const isRootHome = router.pathname === '/';
   const { navMenu } = router.query;
-
   return (
     <Card>
-      {isRootHome || navMenu === post.category ? (
+      {isRootHome || navMenu === blog.category ? (
         <MetaContainer>
-          <Date>{dayjs(post.createdAt).fromNow()}</Date>
+          <Date>{dayjs(blog.createdAt).fromNow()}</Date>
           <CategoryBox>
-            <span>{post.category}</span>
+            <span>{blog.category}</span>
           </CategoryBox>
-
-          <Link href={`/category/${post.category}/post/[id]`} as={`/category/${post.category}/post/2`}>
+          <Link href={`/category/${blog.category}/post/[id]`} as={`/category/${blog.category}/post/${blog.id}`}>
             <a>
               <AarticleContainer>
-                <Title>{post.header}</Title>
-                <Description>{post.description}</Description>
+                <Title>{blog.title}</Title>
+                <Description>{blog.description}</Description>
               </AarticleContainer>
             </a>
           </Link>
