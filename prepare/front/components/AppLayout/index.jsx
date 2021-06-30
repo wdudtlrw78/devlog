@@ -6,14 +6,10 @@ import Image from 'next/image';
 import { faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
-import { useSelector } from 'react-redux';
 import {
   Section,
   HeaderLeftColumn,
-  LogInButton,
   NavContainer,
-  HeaderRightColumn,
-  SignUpButton,
   ToggleMenuButton,
   Footer,
   MainContainer,
@@ -25,10 +21,8 @@ import {
   CenterLine,
   SNS,
 } from './styles';
-import UserProfile from '../UserProfile';
 
 const AppLayout = ({ children }) => {
-  const { isLoggedIn } = useSelector((state) => state.user);
   const [showNavMenu, setShowNavMenu] = useState(false);
   const [showBackground, setShowBackground] = useState(false);
 
@@ -82,24 +76,6 @@ const AppLayout = ({ children }) => {
                 </a>
               </Link>
             </HeaderLeftColumn>
-            <HeaderRightColumn>
-              {isLoggedIn ? (
-                <UserProfile />
-              ) : (
-                <>
-                  <LogInButton>
-                    <Link href="/login">
-                      <a>로그인</a>
-                    </Link>
-                  </LogInButton>
-                  <SignUpButton>
-                    <Link href="/signup">
-                      <a>회원가입</a>
-                    </Link>
-                  </SignUpButton>
-                </>
-              )}
-            </HeaderRightColumn>
           </Container>
         </Header>
         {showNavMenu && (
@@ -121,17 +97,12 @@ const AppLayout = ({ children }) => {
                     <a>포트폴리오</a>
                   </Link>
                 </li>
-                <li>
-                  <Link href="/guestbook" prefetch={false}>
-                    <a>방명록</a>
-                  </Link>
-                </li>
               </TopContainer>
               <CenterLine />
               <BottomContainer>
                 <li>
                   <Link href="/category/[navMenu]" as="/category/HTML&DOM" prefetch={false}>
-                    <a>HTML&DOM</a>
+                    <a>HTML&DOM (1)</a>
                   </Link>
                 </li>
                 <li>

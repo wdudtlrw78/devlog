@@ -1,24 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Head from 'next/head';
-import matter from 'gray-matter';
+import { useRouter } from 'next/router';
 import AppLayout from '../../../components/AppLayout';
+import getAllPosts from '../../../lib/data';
 import PostCard from '../../../components/PostCard';
 
-const isCategory = ({ data, title }) => {
-  const RealData = data.map((blog) => matter(blog));
-  const ListItems = RealData.map((ListItem) => ListItem.data);
+const isCategory = ({ posts }) => {
+  const router = useRouter();
+  const { navMenu } = router.query;
   return (
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
-        <title>{title}</title>
+        <title>{posts.title}</title>
       </Head>
       <AppLayout>
-        <h1 style={{ borderBottom: '1px solid #000' }}>전체 ({data.length})</h1>
-        {ListItems.map((blog) => (
-          <PostCard key={blog.id} blog={blog} />
-        ))}
+        {posts.map((post) => navMenu === post.category && <PostCard key={post.title} post={post} {...post} />)}
       </AppLayout>
     </>
   );
@@ -27,38 +26,30 @@ const isCategory = ({ data, title }) => {
 export default isCategory;
 
 export async function getStaticProps() {
-  const siteData = await import('../../../config.json');
-  const fs = require('fs');
-
-  const files = fs.readdirSync(`${process.cwd()}/content`, 'utf-8');
-
-  const blogs = files.filter((fn) => fn.endsWith('.md'));
-
-  const data = blogs.map((navMenu) => {
-    const path = `${process.cwd()}/category/${navMenu}`;
-    const rawContent = fs.readFileSync(path, {
-      encoding: 'utf-8',
-    });
-
-    return rawContent;
-  });
-
+  const allPosts = getAllPosts();
   return {
     props: {
-      data,
-      title: siteData.default.title,
+      posts: allPosts.map(({ data, content, slug }) => ({
+        ...data,
+        date: data.date,
+        content,
+        slug,
+      })),
     },
   };
 }
 
 export async function getStaticPaths() {
   return {
-    paths: [
-      // String variant:
-      '/category/[navMenu]',
-      // Object variant:
-      { params: { navMenu: 'HTML&DOM' } },
-    ],
-    fallback: true,
+    paths: getAllPosts().map((post) => ({
+      params: {
+        navMenu: post.data.category,
+      },
+    })),
+    fallback: false,
   };
 }
+
+isCategory.propTypes = {
+  posts: PropTypes.array.isRequired,
+};

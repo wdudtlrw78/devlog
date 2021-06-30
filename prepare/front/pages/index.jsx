@@ -1,23 +1,32 @@
 import React from 'react';
 import Head from 'next/head';
-import matter from 'gray-matter';
+import PropTypes from 'prop-types';
+import styled from '@emotion/styled';
 import AppLayout from '../components/AppLayout';
 import PostCard from '../components/PostCard';
+import getAllPosts from '../lib/data';
 
-const Home = ({ data, title }) => {
-  const RealData = data.map((blog) => matter(blog));
-  const ListItems = RealData.map((ListItem) => ListItem.data);
+export const ListSectionTitle = styled.h1`
+  margin-bottom: 56px;
+  padding-bottom: 36px;
+  text-align: center;
+  font-size: 48px;
+  color: #777;
+  border-bottom: 1px solid #c0c0c0;
+`;
+
+const Home = ({ posts }) => {
   return (
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
-        <title>{title}</title>
+        <title>MolyMath</title>
       </Head>
-      <AppLayout>
-        <h1 style={{ borderBottom: '1px solid #000' }}>전체 ({data.length})</h1>
-        {ListItems.map((blog) => (
-          <PostCard key={blog.id} blog={blog} />
+      <AppLayout posts={posts}>
+        <ListSectionTitle>전체 ({posts.length})</ListSectionTitle>
+        {posts.map((post) => (
+          <PostCard key={post.title} post={post} {...post} />
         ))}
       </AppLayout>
     </>
@@ -27,26 +36,19 @@ const Home = ({ data, title }) => {
 export default Home;
 
 export async function getStaticProps() {
-  const siteData = await import('../config.json');
-  const fs = require('fs');
-
-  const files = fs.readdirSync(`${process.cwd()}/content`, 'utf-8');
-
-  const blogs = files.filter((fn) => fn.endsWith('.md'));
-
-  const data = blogs.map((blog) => {
-    const path = `${process.cwd()}/content/${blog}`;
-    const rawContent = fs.readFileSync(path, {
-      encoding: 'utf-8',
-    });
-
-    return rawContent;
-  });
-
+  const allPosts = getAllPosts();
   return {
     props: {
-      data,
-      title: siteData.default.title,
+      posts: allPosts.map(({ data, content, slug }) => ({
+        ...data,
+        date: data.date,
+        content,
+        slug,
+      })),
     },
   };
 }
+
+Home.propTypes = {
+  posts: PropTypes.array.isRequired,
+};

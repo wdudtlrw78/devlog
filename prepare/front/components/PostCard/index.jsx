@@ -4,49 +4,49 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import Link from 'next/link';
 
-import { useRouter } from 'next/router';
-import { Card, MetaContainer, Date, CategoryBox, AarticleContainer, Title, Description } from './styles';
+import {
+  Card,
+  Meta,
+  DateAndCategoryContainer,
+  Date,
+  CategoryBox,
+  AarticleContainer,
+  Title,
+  Description,
+} from './styles';
 
 dayjs.locale('ko');
 dayjs.extend(relativeTime);
 
-const PostCard = ({ blog }) => {
-  const router = useRouter();
-  const isRootHome = router.pathname === '/';
-  const { navMenu } = router.query;
+const PostCard = ({ slug, title, date, category, description }) => {
   return (
     <Card>
-      {isRootHome || navMenu === blog.category ? (
-        <MetaContainer>
-          <Date>{dayjs(blog.createdAt).fromNow()}</Date>
-          <CategoryBox>
-            <span>{blog.category}</span>
-          </CategoryBox>
-          <Link href={`/category/${blog.category}/post/[id]`} as={`/category/${blog.category}/post/${blog.id}`}>
-            <a>
-              <AarticleContainer>
-                <Title>{blog.title}</Title>
-                <Description>{blog.description}</Description>
-              </AarticleContainer>
-            </a>
-          </Link>
-        </MetaContainer>
-      ) : null}
+      <Link href={`/post/${slug}`} prefetch={false}>
+        <a>
+          <Meta>
+            <DateAndCategoryContainer>
+              <Date>{dayjs(date).format('MMM.DD.YYYY')}</Date>
+              <CategoryBox>
+                <span>{category}</span>
+              </CategoryBox>
+            </DateAndCategoryContainer>
+            <AarticleContainer>
+              <Title>{title}</Title>
+              <Description>{description}</Description>
+            </AarticleContainer>
+          </Meta>
+        </a>
+      </Link>
     </Card>
   );
 };
 
 PostCard.propTypes = {
-  post: PropTypes.shape({
-    id: PropTypes.number,
-    header: PropTypes.string,
-    body: PropTypes.string,
-    description: PropTypes.string,
-    category: PropTypes.string,
-    content: PropTypes.string,
-    createdAt: PropTypes.string,
-    Comments: PropTypes.arrayOf(PropTypes.objectOf),
-  }).isRequired,
+  slug: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
 };
 
 export default PostCard;

@@ -98,45 +98,6 @@ export const HeaderLeftColumn = styled.div`
     display: none;
 `;
 
-export const HeaderRightColumn = styled.div`
-  display: flex;
-  user-select: none;
-  & a:hover {
-    color: #000;
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-`;
-
-export const LogInButton = styled.div`
-  & a {
-    color: #e96900;
-    display: inline-block;
-    padding: 18px 10px;
-    transition: color 1s ease 0s;
-  }
-
-  @media (min-width: 820px) {
-    & a {
-      padding: 25px 10px;
-    }
-  }
-`;
-
-export const SignUpButton = styled.div`
-  & a {
-    display: inline-block;
-    color: #e96900;
-    padding: 18px 10px;
-    transition: color 1s ease 0s;
-  }
-
-  @media (min-width: 820px) {
-    & a {
-      padding: 25px 10px;
-    }
-  }
-`;
-
 export const NavContainer = styled.nav`
   user-select: none;
   position: fixed;
@@ -166,6 +127,7 @@ export const TopContainer = styled.ul`
   & li {
     font-weight: 300;
     margin-bottom: 24px;
+    list-style: none;
   }
 
   & li:first-of-type > a {
@@ -180,11 +142,11 @@ export const CenterLine = styled.div`
   width: 240px;
   height: 0;
   left: 0px;
-  top: 260px;
+  top: 284px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
   @media (min-width: 820px) {
-    top: 280px;
+    top: 306px;
   }
 `;
 
@@ -195,6 +157,7 @@ export const BottomContainer = styled.ul`
 
   & li {
     margin-bottom: 24px;
+    list-style: none;
   }
 `;
 
