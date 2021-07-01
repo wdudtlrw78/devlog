@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faBars } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import {
   Section,
@@ -20,6 +20,7 @@ import {
   TopContainer,
   CenterLine,
   SNS,
+  UpBig,
 } from './styles';
 
 const AppLayout = ({ children }) => {
@@ -59,6 +60,10 @@ const AppLayout = ({ children }) => {
     return () => {
       window.removeEventListener('resize', onResize);
     };
+  }, []);
+
+  const onUpper = useCallback(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   return (
@@ -102,7 +107,7 @@ const AppLayout = ({ children }) => {
               <BottomContainer>
                 <li>
                   <Link href="/category/[navMenu]" as="/category/HTML&DOM" prefetch={false}>
-                    <a>HTML&DOM (1)</a>
+                    <a>HTML&DOM</a>
                   </Link>
                 </li>
                 <li>
@@ -145,6 +150,11 @@ const AppLayout = ({ children }) => {
           © {today.getFullYear()} | by molymath
         </Footer>
       </Section>
+      <UpBig onClick={onUpper}>
+        <div className="main">
+          <FontAwesomeIcon className="arrow-up" icon={faArrowUp} size="2x" />
+        </div>
+      </UpBig>
     </div>
   );
 };

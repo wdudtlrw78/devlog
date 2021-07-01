@@ -199,3 +199,43 @@ export const SNS = styled.div`
     color: #e96900;
   }
 `;
+
+export const UpBig = styled.div`
+  width: 38px;
+  height: 38px;
+  position: fixed;
+  right: 45px;
+  bottom: 45px;
+  z-index: 9;
+
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+
+  .main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 38px;
+    height: 38px;
+    padding: 2px;
+    background-color: #e96900;
+    border: 2px solid #34495e;
+    border-radius: 20px;
+    box-shadow: 1px 4px 0 0 rgb(0 0 0 / 8%);
+  }
+
+  .arrow-up {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    font-size: 20px;
+    background-size: contain;
+  }
+`;

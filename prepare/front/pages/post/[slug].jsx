@@ -2,13 +2,23 @@ import React from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
+import dayjs from 'dayjs';
+import Image from 'next/image';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import AppLayout from '../../components/AppLayout';
 import gfm from 'remark-gfm';
+import AppLayout from '../../components/AppLayout';
 import getAllPosts from '../../lib/data';
+import {
+  AarticleContainer,
+  CategoryBox,
+  Date,
+  DateAndCategoryContainer,
+  Meta,
+  Title,
+} from '../../components/PostCard/styles';
 
-const Blog = ({ title, content }) => {
+const Blog = ({ title, content, category, date }) => {
   const source = content.replace(/\r\n/gi, '\n &nbsp;');
   return (
     <>
@@ -18,26 +28,45 @@ const Blog = ({ title, content }) => {
         <title>{title} | MolyMath</title>
       </Head>
       <AppLayout>
+        <Meta style={{ marginBottom: '32px' }}>
+          <AarticleContainer style={{ marginBottom: '10px' }}>
+            <Title>{title}</Title>
+          </AarticleContainer>
+          <DateAndCategoryContainer>
+            <Date>{dayjs(date).format('M월.DD.YYYY')}</Date>
+            <CategoryBox>
+              <span>{category}</span>
+            </CategoryBox>
+          </DateAndCategoryContainer>
+        </Meta>
         <ReactMarkdown
           components={{
             source,
-            p: ({ node, children }) => {
+            p: (paragraph) => {
+              const { node } = paragraph;
               if (node.children[0].tagName === 'img') {
                 const image = node.children[0];
-                console.log(node, children);
+                const alt = image.properties.alt?.replace(/ *\{[^)]*\} */g, '');
+                const isPriority = image.properties.alt?.toLowerCase().includes('{priority}');
+                const metaWidth = image.properties.alt.match(/{([^}]+)x/);
+                const metaHeight = image.properties.alt.match(/x([^}]+)}/);
+                const width = metaWidth ? metaWidth[1] : '768';
+                const height = metaHeight ? metaHeight[1] : '768';
                 return (
                   <div className="image">
                     <Image
-                      src={`/images/${image.properties.src}`}
-                      alt={image.properties.alt}
-                      width="600"
-                      height="300"
+                      src={image.properties.src}
+                      width={width}
+                      height={height}
+                      className="postImg"
+                      alt={alt}
+                      priority={isPriority}
                     />
                   </div>
                 );
               }
               // Return default child if it's not an image
-              return <p>{typeof children === 'string' ? children.replace(/\n/g, '  \n') : children}</p>;
+              return <p>{paragraph.children}</p>;
             },
             code({ className, children }) {
               const language = className.replace('language-', '');
@@ -80,5 +109,8 @@ export async function getStaticPaths() {
 }
 
 Blog.propTypes = {
+  title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
 };

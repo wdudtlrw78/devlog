@@ -13,6 +13,10 @@ export const ListSectionTitle = styled.h1`
   font-size: 48px;
   color: #777;
   border-bottom: 1px solid #c0c0c0;
+
+  @media (max-width: 380px) {
+    font-size: 36px;
+  }
 `;
 
 const Home = ({ posts }) => {
@@ -23,8 +27,8 @@ const Home = ({ posts }) => {
         <meta charSet="utf-8" />
         <title>MolyMath</title>
       </Head>
-      <AppLayout posts={posts}>
-        <ListSectionTitle>전체 ({posts.length})</ListSectionTitle>
+      <AppLayout posts={posts} {...posts}>
+        <ListSectionTitle>전체({posts.length})</ListSectionTitle>
         {posts.map((post) => (
           <PostCard key={post.title} post={post} {...post} />
         ))}
