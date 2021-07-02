@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const Section = styled.section`
@@ -116,7 +117,7 @@ export const NavContainer = styled.nav`
   }
 `;
 
-export const TopContainer = styled.ul`
+export const Menus = styled.ul`
   padding: 0;
   margin-top: 88px;
   position: relative;
@@ -134,30 +135,6 @@ export const TopContainer = styled.ul`
     font-size: 18px;
     font-weight: 500;
     color: #e96900;
-  }
-`;
-
-export const CenterLine = styled.div`
-  position: absolute;
-  width: 240px;
-  height: 0;
-  left: 0px;
-  top: 284px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-
-  @media (min-width: 820px) {
-    top: 306px;
-  }
-`;
-
-export const BottomContainer = styled.ul`
-  padding: 0;
-  margin-top: 78px;
-  font-size: 16px;
-
-  & li {
-    margin-bottom: 24px;
-    list-style: none;
   }
 `;
 

@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import styled from '@emotion/styled';
 import AppLayout from '../../../components/AppLayout';
 import getAllPosts from '../../../lib/data';
 import PostCard from '../../../components/PostCard';
 import { ListSectionTitle } from '../../index';
+import DetailNavMenu from '../../../components/DetailNavMenu';
 
 const isCategory = ({ posts }) => {
   const router = useRouter();
@@ -19,6 +19,8 @@ const isCategory = ({ posts }) => {
         <title>{navMenu} | MolyMath</title>
       </Head>
       <AppLayout>
+        <p style={{ color: '#e96900', textAlign: 'center', fontSize: '16px', fontWeight: '500' }}>Tag</p>
+        <DetailNavMenu posts={posts} />
         <ListSectionTitle>
           {navMenu}({posts.filter((post) => navMenu === post.category).length})
         </ListSectionTitle>

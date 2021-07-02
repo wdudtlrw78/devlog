@@ -1,10 +1,12 @@
 import React from 'react';
+import Link from 'next/link';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import AppLayout from '../components/AppLayout';
 import PostCard from '../components/PostCard';
 import getAllPosts from '../lib/data';
+import DetailNavMenu from '../components/DetailNavMenu';
 
 export const ListSectionTitle = styled.h1`
   margin-bottom: 56px;
@@ -27,8 +29,10 @@ const Home = ({ posts }) => {
         <meta charSet="utf-8" />
         <title>MolyMath</title>
       </Head>
-      <AppLayout posts={posts} {...posts}>
-        <ListSectionTitle>전체({posts.length})</ListSectionTitle>
+      <AppLayout>
+        <p style={{ color: '#e96900', textAlign: 'center', fontSize: '16px', fontWeight: '500' }}>Tag</p>
+        <DetailNavMenu posts={posts} />
+        <ListSectionTitle>All({posts.length})</ListSectionTitle>
         {posts.map((post) => (
           <PostCard key={post.title} post={post} {...post} />
         ))}

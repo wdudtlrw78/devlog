@@ -16,9 +16,7 @@ import {
   Header,
   Container,
   BackGround,
-  BottomContainer,
-  TopContainer,
-  CenterLine,
+  Menus,
   SNS,
   UpBig,
 } from './styles';
@@ -86,7 +84,7 @@ const AppLayout = ({ children }) => {
         {showNavMenu && (
           <>
             <NavContainer show={showNavMenu}>
-              <TopContainer>
+              <Menus>
                 <li>
                   <Link href="/" prefetch={false}>
                     <a>MolyMath</a>
@@ -102,25 +100,13 @@ const AppLayout = ({ children }) => {
                     <a>포트폴리오</a>
                   </Link>
                 </li>
-              </TopContainer>
-              <CenterLine />
-              <BottomContainer>
                 <li>
-                  <Link href="/category/[navMenu]" as="/category/HTML&DOM" prefetch={false}>
-                    <a>HTML&DOM</a>
+                  <Link href="/books" prefetch={false}>
+                    <a>Books</a>
                   </Link>
                 </li>
-                <li>
-                  <Link href="/category/[navMenu]" as="/category/CSS" prefetch={false}>
-                    <a>CSS</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/category/[navMenu]" as="/category/JavaScript" prefetch={false}>
-                    <a>JavaScript</a>
-                  </Link>
-                </li>
-              </BottomContainer>
+              </Menus>
+              {/* <CenterLine /> */}
             </NavContainer>
           </>
         )}

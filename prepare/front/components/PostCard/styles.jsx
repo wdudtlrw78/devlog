@@ -32,7 +32,7 @@ export const CategoryBox = styled.div`
   height: 24px;
   margin-left: 8px;
   background: #ffffff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 4px 0 0 rgb(0 0 0 / 8%);
   border-radius: 8px;
 
   & span {
@@ -53,6 +53,7 @@ export const AarticleContainer = styled.div`
 
 export const Title = styled.h1`
   margin: 0;
+
   font-size: 32px;
 `;
 
