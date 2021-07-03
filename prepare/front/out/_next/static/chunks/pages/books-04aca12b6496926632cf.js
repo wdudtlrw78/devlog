@@ -1,1 +1,0 @@
-_N_E=(window.webpackJsonp_N_E=window.webpackJsonp_N_E||[]).push([[13],{gidP:function(n,o,i){(window.__NEXT_P=window.__NEXT_P||[]).push(["/books",function(){return i("vn7A")}])},vn7A:function(n,o,i){"use strict";i.r(o);var _=i("nKUr"),t=(i("q1tI"),i("04da"));o.default=function(){return Object(_.jsx)(t.a,{children:"Books"})}}},[["gidP",0,2,3,6,1,4,5]]]);
