@@ -4,6 +4,11 @@ export const Card = styled.section`
   padding: 0 0 42px;
   margin: 0 0px 56px;
   border-bottom: 1px solid #c0c0c0;
+
+  & a {
+    color: #212121;
+    text-decoration: none;
+  }
 `;
 
 export const Meta = styled.div`

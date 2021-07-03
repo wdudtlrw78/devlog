@@ -92,12 +92,12 @@ const AppLayout = ({ children }) => {
                 </li>
                 <li>
                   <Link href="/profile" prefetch={false}>
-                    <a>소개</a>
+                    <a>About</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/portfolio" prefetch={false}>
-                    <a>포트폴리오</a>
+                    <a>Portfolio</a>
                   </Link>
                 </li>
                 <li>
@@ -106,7 +106,6 @@ const AppLayout = ({ children }) => {
                   </Link>
                 </li>
               </Menus>
-              {/* <CenterLine /> */}
             </NavContainer>
           </>
         )}

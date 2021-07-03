@@ -1,0 +1,1 @@
+_N_E=(window.webpackJsonp_N_E=window.webpackJsonp_N_E||[]).push([[15],{YhuM:function(n,o,u){"use strict";u.r(o);var t=u("nKUr"),_=(u("q1tI"),u("04da"));o.default=function(){return Object(t.jsx)(_.a,{children:"Guestbook"})}},h4Tn:function(n,o,u){(window.__NEXT_P=window.__NEXT_P||[]).push(["/guestbook",function(){return u("YhuM")}])}},[["h4Tn",0,2,3,6,1,4,5]]]);

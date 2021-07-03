@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next -p 3030"
+    "dev": "next -p 3030",
+    "build": "next build && next export",
+    "start": "next start"
   },
   "author": "molymath",
   "license": "ISC",

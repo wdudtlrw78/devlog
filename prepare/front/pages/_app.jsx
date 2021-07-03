@@ -16,7 +16,7 @@ export const globalStyles = (
         padding: 0;
         margin: 0;
         height: 100%;
-        font-size: 14px;
+        font-size: 16px;
         font-family: Noto Sans KR, sans-serif;
       }
 
@@ -24,9 +24,13 @@ export const globalStyles = (
         box-sizing: border-box;
       }
 
-      a {
-        color: #212121;
-        text-decoration: none;
+      & p {
+        margin: 20px 0;
+        line-height: 1.75;
+      }
+
+      & pre {
+        margin: 20px 0;
       }
 
       .menu-button {

@@ -29,6 +29,11 @@ export const Header = styled.header`
   background: #ffffff;
   box-shadow: 1px 4px 0 0 rgb(0 0 0 / 8%);
 
+  & a {
+    color: #212121;
+    text-decoration: none;
+  }
+
   @media (min-width: 820px) {
     height: 64px;
   }
@@ -93,6 +98,7 @@ export const ToggleMenuButton = styled.button`
 `;
 
 export const HeaderLeftColumn = styled.div`
+  user-select: none;
   margin-left: 16px;
   width: 48px;
 
@@ -120,6 +126,11 @@ export const NavContainer = styled.nav`
   z-index: 100;
   overflow: auto;
 
+  & a {
+    color: #212121;
+    text-decoration: none;
+  }
+
   @media (max-width: 820px) {
     right: 0;
   }
@@ -140,13 +151,19 @@ export const Menus = styled.ul`
   @media (min-width: 820px) {
     margin-top: 108px;
   }
+
+  & a {
+    color: #212121;
+    text-decoration: none;
+  }
+
   & li {
     font-weight: 300;
     margin-bottom: 24px;
     list-style: none;
   }
 
-  & li:first-of-type > a {
+  & li:first-of-type a {
     font-size: 18px;
     font-weight: 500;
     color: #e96900;
@@ -172,6 +189,11 @@ export const Footer = styled.footer`
   align-items: center;
   font-weight: 300;
   padding: 60px 0;
+
+  & a {
+    color: #212121;
+    text-decoration: none;
+  }
 
   @media (min-width: 820px) {
     margin-left: 180px;

@@ -1,0 +1,1 @@
+_N_E=(window.webpackJsonp_N_E=window.webpackJsonp_N_E||[]).push([[17],{"9u96":function(n,o,u){"use strict";u.r(o);var t=u("nKUr"),i=(u("q1tI"),u("04da"));o.default=function(){return Object(t.jsx)(i.a,{children:"Portfolio"})}},uGGz:function(n,o,u){(window.__NEXT_P=window.__NEXT_P||[]).push(["/portfolio",function(){return u("9u96")}])}},[["uGGz",0,2,3,6,1,4,5]]]);

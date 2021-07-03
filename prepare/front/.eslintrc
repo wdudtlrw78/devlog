@@ -28,6 +28,7 @@
     "spaced-comment": "off",
     "no-param-reassign": "off",
     "arrow-body-style": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "@next/next/no-img-element": "off"
   }
 }

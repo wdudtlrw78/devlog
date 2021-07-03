@@ -47,6 +47,16 @@ const Blog = ({ title, content, category, date }) => {
         <ReactMarkdown
           components={{
             source,
+            a: (props) => {
+              if (props.href.match('http')) {
+                return (
+                  <a href={props.href} target="_blank" rel="noreferrer noopener">
+                    {props.children}
+                  </a>
+                );
+              }
+              return <a href={props.href}>{props.children}</a>;
+            },
             p: (paragraph) => {
               const { node } = paragraph;
               if (node.children[0].tagName === 'img') {
