@@ -118,18 +118,18 @@ const AppLayout = ({ children }) => {
           <SNS>
             <Link href="mailto:wdudtlrw78@gmail.com" prefetch={false}>
               <a>
-                <FontAwesomeIcon className="instagram" icon={faEnvelope} size="lg" title="Email" />
+                <FontAwesomeIcon className="instagram" icon={faEnvelope} size="lg" />
               </a>
             </Link>
             <Link href="https://github.com/wdudtlrw78" prefetch={false}>
               <a target="_blank" rel="noreferrer noopener">
-                <FontAwesomeIcon className="github" icon={faGithub} size="lg" title="Github" />
+                <FontAwesomeIcon className="github" icon={faGithub} size="lg" />
               </a>
             </Link>
 
             <Link href="https://www.instagram.com/mosik_2" prefetch={false}>
               <a target="_blank" rel="noreferrer noopener" tel="github">
-                <FontAwesomeIcon className="instagram" icon={faInstagram} size="lg" title="Instagram" />
+                <FontAwesomeIcon className="instagram" icon={faInstagram} size="lg" />
               </a>
             </Link>
           </SNS>

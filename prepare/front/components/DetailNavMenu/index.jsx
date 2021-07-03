@@ -52,7 +52,7 @@ const DetailNavMenu = ({ posts }) => {
         </Link>
       </li>
       {navData.map((menu) => (
-        <li>
+        <li key={menu.category}>
           <Link href={`/category/${menu.category}`} prefetch={false}>
             <a>
               {menu.category}

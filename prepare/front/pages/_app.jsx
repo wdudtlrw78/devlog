@@ -25,7 +25,7 @@ export const globalStyles = (
       }
 
       a {
-        color: #000;
+        color: #212121;
         text-decoration: none;
       }
 
@@ -55,12 +55,12 @@ export const globalStyles = (
       }
 
       em {
-        color: #ec4899;
-        font-weight: 600;
+        color: #e96900;
         font-size: 0.875em;
-        background-color: #f3f4f6;
-        padding: 2px 4px;
-        border-radius: 0.25rem;
+        background-color: #f8f8f8;
+        padding: 3px 5px;
+        border-radius: 2px;
+        white-space: nowrap;
       }
     `}
   />
