@@ -53,6 +53,15 @@ export const globalStyles = (
         padding-left: 1em;
         border-left: 0.5em #eee solid;
       }
+
+      em {
+        color: #ec4899;
+        font-weight: 600;
+        font-size: 0.875em;
+        background-color: #f3f4f6;
+        padding: 2px 4px;
+        border-radius: 0.25rem;
+      }
     `}
   />
 );

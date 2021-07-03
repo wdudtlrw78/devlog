@@ -12,6 +12,7 @@ export const Meta = styled.div`
 
 export const DateAndCategoryContainer = styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
   margin-left: 16px;
   margin-bottom: 7px;
@@ -45,6 +46,7 @@ export const CategoryBox = styled.div`
 
 export const AarticleContainer = styled.div`
   margin-left: 16px;
+  text-align: center;
 
   @media (min-width: 820px) {
     margin-left: 0;
@@ -54,7 +56,7 @@ export const AarticleContainer = styled.div`
 export const Title = styled.h1`
   margin: 0;
 
-  font-size: 32px;
+  font-size: 48px;
 `;
 
 export const Description = styled.p`

@@ -27,7 +27,7 @@ export const Header = styled.header`
   top: 0;
   left: 0;
   background: #ffffff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 4px 0 0 rgb(0 0 0 / 8%);
 
   @media (min-width: 820px) {
     height: 64px;
@@ -48,6 +48,7 @@ export const Container = styled.div`
   height: 100%;
   margin: 0 auto;
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
 
@@ -57,6 +58,7 @@ export const Container = styled.div`
 
   @media (min-width: 820px) {
     max-width: calc(1100px);
+    flex-direction: row;
   }
 
   @media (min-width: 320px) {
@@ -67,7 +69,6 @@ export const Container = styled.div`
 export const ToggleMenuButton = styled.button`
   width: 48px;
   height: 48px;
-  float: left;
   cursor: pointer;
   background: transparent;
   border: none;
@@ -92,11 +93,20 @@ export const ToggleMenuButton = styled.button`
 `;
 
 export const HeaderLeftColumn = styled.div`
-  width: 240px;
-  text-align: center;
-  clear: both;
-  @media (max-width: 820px) {
-    display: none;
+  margin-left: 16px;
+  width: 48px;
+
+  & a {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 820px) {
+    width: 64px;
+    margin-left: 32px;
+    text-align: center;
+  }
 `;
 
 export const NavContainer = styled.nav`
@@ -109,6 +119,11 @@ export const NavContainer = styled.nav`
   height: 100vh;
   z-index: 100;
   overflow: auto;
+
+  @media (max-width: 820px) {
+    right: 0;
+  }
+
   ::-webkit-scrollbar {
     display: none;
   }

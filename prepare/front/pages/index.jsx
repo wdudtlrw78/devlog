@@ -11,8 +11,8 @@ import DetailNavMenu from '../components/DetailNavMenu';
 export const ListSectionTitle = styled.h1`
   margin-bottom: 56px;
   padding-bottom: 36px;
-  text-align: center;
   font-size: 48px;
+  text-align: center;
   color: #777;
   border-bottom: 1px solid #c0c0c0;
 
@@ -32,7 +32,7 @@ const Home = ({ posts }) => {
       <AppLayout>
         <p style={{ color: '#e96900', textAlign: 'center', fontSize: '16px', fontWeight: '500' }}>Tag</p>
         <DetailNavMenu posts={posts} />
-        <ListSectionTitle>All({posts.length})</ListSectionTitle>
+        <ListSectionTitle>All</ListSectionTitle>
         {posts.map((post) => (
           <PostCard key={post.title} post={post} {...post} />
         ))}

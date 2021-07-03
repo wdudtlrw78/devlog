@@ -21,9 +21,7 @@ const isCategory = ({ posts }) => {
       <AppLayout>
         <p style={{ color: '#e96900', textAlign: 'center', fontSize: '16px', fontWeight: '500' }}>Tag</p>
         <DetailNavMenu posts={posts} />
-        <ListSectionTitle>
-          {navMenu}({posts.filter((post) => navMenu === post.category).length})
-        </ListSectionTitle>
+        <ListSectionTitle>{navMenu}</ListSectionTitle>
         {posts.map((post) => navMenu === post.category && <PostCard key={post.title} post={post} {...post} />)}
       </AppLayout>
     </>
