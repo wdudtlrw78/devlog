@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const NotFoundPage = () => {
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
       <div style={{ textAlign: 'center' }}>
         <div>
           <h1>
