@@ -75,7 +75,7 @@ const AppLayout = ({ children }) => {
             <HeaderLeftColumn>
               <Link href="/" prefetch={false}>
                 <a>
-                  <Image src="/logo.png" alt="MolyMath" width={64} height={44} />
+                  <Image src="../images/logo.png" alt="MolyMath" width={64} height={44} />
                 </a>
               </Link>
             </HeaderLeftColumn>

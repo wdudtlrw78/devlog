@@ -6,4 +6,10 @@ module.exports = {
     });
     return config;
   },
+
+  images: {
+    domains: ['molymath.vercel.app'],
+    loader: 'imgix',
+    path: '/images',
+  },
 };
