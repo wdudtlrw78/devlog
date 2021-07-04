@@ -85,7 +85,6 @@ const Blog = ({ title, content, category, date }) => {
             },
             code({ className, children }) {
               const language = className.replace('language-', '');
-              console.log(language);
               return <SyntaxHighlighter style={materialDark} language={language} children={children[0]} />;
             },
           }}
@@ -120,7 +119,7 @@ export async function getStaticPaths() {
         slug: post.slug,
       },
     })),
-    fallback: false,
+    fallback: true,
   };
 }
 
