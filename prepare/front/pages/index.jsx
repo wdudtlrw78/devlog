@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
@@ -21,7 +20,7 @@ export const ListSectionTitle = styled.h1`
   }
 `;
 
-const Home = ({ posts }) => {
+export default function Home({ posts }) {
   return (
     <>
       <Head>
@@ -39,9 +38,7 @@ const Home = ({ posts }) => {
       </AppLayout>
     </>
   );
-};
-
-export default Home;
+}
 
 export async function getStaticProps() {
   const allPosts = getAllPosts();

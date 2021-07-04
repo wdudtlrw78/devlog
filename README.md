@@ -4,18 +4,13 @@
 
 <br>
 
-### Front
+### Tech
 
 - Next.Js(SSR)
 - React Hooks
 - Emotion
-
-### DevOps
-
-- AWS
-  - EC2
-  - S3
-  - Route53
+- React-markdown
+- Vercel
 
 <br>
 

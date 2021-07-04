@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-const NotFoundPage = () => {
+export default function NotFoundPag() {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
       <div style={{ textAlign: 'center' }}>
@@ -32,6 +32,4 @@ const NotFoundPage = () => {
       </div>
     </div>
   );
-};
-
-export default NotFoundPage;
+}
